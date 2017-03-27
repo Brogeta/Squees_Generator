@@ -1,3 +1,12 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container">
     <form>
@@ -8,6 +17,22 @@
                 <div class="col-lg-10">
                     <select class="form-control" id="selectParameterSet">
                         <option selected value="0">Select a Parameter Set</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="useExistingDeck" class="col-lg-2 control-label">Check if you want to use an Existing Deck</label>
+                <div class="col-lg-10">
+                    <input type="checkbox" id="useExistingDeck" data-role="flipswitch" data-on-text="True" data-off-text="False"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="selectExistingDeck" class="col-lg-2 control-label">selectExistingDeck</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="selectExistingDeck">
+                        <option selected value="0">Select an Existing Deck</option>
                     </select>
                 </div>
             </div>
@@ -36,6 +61,7 @@
             </div>
 
             <%--Select General--%>
+
             <div class="form-group">
                 <label for="isPartner" class="col-lg-2 control-label">isPartner</label>
                 <div class="col-lg-10">
