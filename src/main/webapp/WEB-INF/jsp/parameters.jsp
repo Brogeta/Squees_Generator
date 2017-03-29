@@ -5,12 +5,19 @@
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
+<c:url value="/static/js/parameters.js" var="parameters" />
+<script src="${parameters}"></script>
+
 
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container">
     <form>
         <fieldset>
+
+            <hidden id="parametersId"/>
+            <hidden id="parametersVersion"/>
 
             <div class="form-group">
                 <label for="selectParameterSet" class="col-lg-2 control-label">Parameter Set</label>
@@ -365,6 +372,7 @@
                 </div>
             </div>
 
+            <button type="button" class="btn btn-default" id="submit">Submit</button>
         </fieldset>
     </form>
 </div>
