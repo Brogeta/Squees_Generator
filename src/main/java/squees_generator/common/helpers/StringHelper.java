@@ -1,5 +1,7 @@
 package squees_generator.common.helpers;
 
+import java.util.List;
+
 /**
  * Created by Brandon.O'Donnell on 2/22/2017.
  */
@@ -45,5 +47,13 @@ public class StringHelper extends CommonHelper{
 
         }
         return digits;
+    }
+
+    public static boolean stringListHasString(List<String> stringList, String string) {
+        for(String str: stringList) {
+            if(str.equals(string))
+                return true;
+        }
+        return false;
     }
 }

@@ -22,7 +22,10 @@ public class MagicDeck {
 
 
     @ManyToMany
-    private List<MagicCard>     magicCards;
+    private List<MagicCard> mainDeck;
+
+    @ManyToMany
+    private List<MagicCard> sideboard;
 
     private String              name;
 
@@ -56,12 +59,12 @@ public class MagicDeck {
         this.version = version;
     }
 
-    public List<MagicCard> getMagicCards() {
-        return magicCards;
+    public List<MagicCard> getMainDeck() {
+        return mainDeck;
     }
 
-    public void setMagicCards(List<MagicCard> magicCards) {
-        this.magicCards = magicCards;
+    public void setMainDeck(List<MagicCard> mainDeck) {
+        this.mainDeck = mainDeck;
     }
 
     public String getName() {
@@ -70,6 +73,30 @@ public class MagicDeck {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<MagicCard> getSideboard() {
+        return sideboard;
+    }
+
+    public void setSideboard(List<MagicCard> sideboard) {
+        this.sideboard = sideboard;
+    }
+
+    //endregion
+
+    //region    CUSTOM
+
+    public boolean checkDeckForCard(String cardName) {
+        for(MagicCard card: this.mainDeck) {
+            if(card.getCardName().equals(cardName))
+                return true;
+        }
+        for(MagicCard card: this.sideboard) {
+            if(card.getCardName().equals(cardName))
+                return true;
+        }
+        return false;
     }
 
     //endregion

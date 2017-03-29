@@ -14,4 +14,10 @@ public class RestController {
 
         return "parameters";
     }
+
+    @RequestMapping("/magicDeck")
+    public String magicDeckPage() {
+
+        return "magicDeck";
+    }
 }
