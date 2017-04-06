@@ -1,0 +1,80 @@
+12 plains
+11 island
+1 Opal Palace
+1 Eye of Ugin
+1 Fountain of Cho
+1 Temple of the False God
+1 Holdout Settlement
+1 Land Cap
+1 Tolaria
+1 Terrain Generator
+1 Mirrorpool
+1 Mistveil Plains
+1 Sandstone Bridge
+1 Fleeting Memories
+1 Hinterland Drake
+1 Karn's Touch
+1 Guan Yu's 1,000-Li March
+1 Leashling
+1 Street Sweeper
+1 Wipe Away
+1 Word of Undoing
+1 Circle of Protection: Black
+1 Pact of Negation
+1 Shorecrasher Elemental
+1 Azorius Cluestone
+1 Memory Crystal
+1 Master Thief
+1 Livewire Lash
+1 Bruna, Light of Alabaster
+1 Lifted by Clouds
+1 Stasis Cell
+1 Overwhelming Denial
+1 Abzan Advantage
+1 Endoskeleton
+1 Endure
+1 Voyager Staff
+1 Heliod, God of the Sun
+1 Flash
+1 Fascination
+1 Vulshok Battlegear
+1 Wind Sail
+1 Viseling
+1 Green Ward
+1 Sacred Boon
+1 Leonin Bola
+1 Akroan Horse
+1 Insectile Aberration
+1 Declaration in Stone
+1 Mystic Speculation
+1 Call to Mind
+1 Cogwork Grinder
+1 Presence of the Wise
+1 Evasive Action
+1 Armored Transport
+1 Leaden Fists
+1 Sphinx's Revelation
+1 Drag Under
+1 Detention Sphere
+1 Soldevi Simulacrum
+1 Phyrexian Altar
+1 Razormane Masticore
+1 Coercive Portal
+1 Samite Elder
+1 Shared Discovery
+1 Diminishing Returns
+1 Landbind Ritual
+1 Martyr's Cause
+1 Hold at Bay
+1 Masterwork of Ingenuity
+1 Ugin, the Spirit Dragon
+1 Kytheon's Tactics
+1 Apathy
+1 Marshaling Cry
+1 Kitsune Mystic
+1 Dispense Justice
+1 Mindbreak Trap
+1 Think Twice
+1 Crystal Chimes
+ 
+1 Isperia the Inscrutable

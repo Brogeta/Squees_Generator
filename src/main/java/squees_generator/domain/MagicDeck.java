@@ -3,6 +3,7 @@ package squees_generator.domain;/**
  */
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,10 +23,10 @@ public class MagicDeck {
 
 
     @ManyToMany
-    private List<MagicCard> mainDeck;
+    private List<MagicCard> mainDeck =new ArrayList<>();
 
     @ManyToMany
-    private List<MagicCard> sideboard;
+    private List<MagicCard> sideboard = new ArrayList<>();
 
     private String              name;
 

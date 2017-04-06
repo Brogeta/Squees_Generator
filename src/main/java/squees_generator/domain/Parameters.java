@@ -86,6 +86,8 @@ public class Parameters {
     //region    CONSTRUCTORS
 
     public Parameters() {
+        this.general1 = null;
+        this.general2 = null;
     }
 
     //endregion

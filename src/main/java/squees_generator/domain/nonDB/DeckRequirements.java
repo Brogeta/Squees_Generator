@@ -1,5 +1,6 @@
 package squees_generator.domain.nonDB;
 
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import squees_generator.common.helpers.StringHelper;
 import squees_generator.domain.MagicCard;
 import squees_generator.domain.Parameters;
@@ -125,8 +126,8 @@ public class DeckRequirements {
 
     //takes parameters data a sets basicLands and nonBasicLands
     public void determineLands(Parameters parameters) {
-        int totalLands = (int)(parameters.getDeckSize() * (double)(parameters.getPercentLand() / 100));
-        this.nonBasicLands = (int)(totalLands * (double)(parameters.getPercentNonbasicLand() / 100));
+        int totalLands = (int)(parameters.getDeckSize() * ((float)parameters.getPercentLand() / 100));
+        this.nonBasicLands = (int)(totalLands * ((float)parameters.getPercentNonbasicLand() / 100));
         this.basicLands=totalLands-this.nonBasicLands;
 
         //update remaining deck size
@@ -135,9 +136,12 @@ public class DeckRequirements {
 
     //uses parameters type weights to make a list
     public void makeTypeList(Parameters parameters) {
+
+        this.typeList= new ArrayList<>();
+
         int y = 10;
 
-        for(int x = 0; x < this.deckSize; ++x) {
+        for(int x = 0; x < this.deckSize*10; ++x) {
 
             if(parameters.getWeightCreature() >= y)
                 this.typeList.add("creature");
@@ -165,43 +169,36 @@ public class DeckRequirements {
 
     //uses parameters color weights to make a list
     public void makeColorList(Parameters parameters) {
-        int y = 10;
 
-        for(int x = 0; x < this.deckSize; ++x) {
+        this.colorList = new ArrayList<>();
 
-            if(parameters.getWeightWhite() >= y)
+
+
+
+            if(parameters.getWeightWhite() == 0)
                 this.colorList.add("w");
 
-            if(parameters.getWeightBlue() >= y)
+            if(parameters.getWeightBlue() == 0)
                 this.colorList.add("u");
 
-            if(parameters.getWeightBlack() >= y)
+            if(parameters.getWeightBlack() == 0)
                 this.colorList.add("b");
 
-            if(parameters.getWeightRed() >= y)
+            if(parameters.getWeightRed() == 0)
                 this.colorList.add("r");
 
-            if(parameters.getWeightGreen() >= y)
+            if(parameters.getWeightGreen() == 0)
                 this.colorList.add("g");
 
-            //TODO:     this
-            if(parameters.getWeightColorless() >= y)
-            this.colorList.add("c");
-
-
-            --y;
-            if(y == 0)
-                y = 10;
-        }
-
-        Collections.shuffle(colorList);
     }
 
     //uses parameters rarity weights to make a list
     public void makeRarityList(Parameters parameters) {
+        this.rarityList = new ArrayList<>();
+
         int y = 10;
 
-        for(int x = 0; x < this.deckSize; ++x) {
+        for(int x = 0; x < this.deckSize*10; ++x) {
 
             if(parameters.getWeightCommon() >= y)
                 this.rarityList.add("common");
@@ -209,16 +206,12 @@ public class DeckRequirements {
             if(parameters.getWeightUncommon() >= y)
                 this.rarityList.add("uncommon");
 
-            if(parameters.isRareSameAsMythic() == true) {
-                if(parameters.getWeightRare() >= y)
-                    this.rarityList.add("rare mythic rare");
-            }
-            else {
-                if(parameters.getWeightRare() >= y)
-                    this.rarityList.add("rare");
-                if(parameters.getWeightMythic() >= y)
-                    this.rarityList.add("mythic rare");
-            }
+            if(parameters.getWeightRare() >= y)
+                this.rarityList.add("rare");
+
+            if(parameters.getWeightMythic() >= y)
+                this.rarityList.add("mythic rare");
+
 
             --y;
             if(y == 0)
@@ -270,6 +263,23 @@ public class DeckRequirements {
     //Returns the Rarity part of the Magic API call
     public String raritySearchURL(int id) {
         return "rarity="+ this.rarityList.get(id) + "&";
+    }
+
+
+    public String colorsParam() {
+        String colorSearch = new String();
+
+        for(int x = 0; x < this.colorList.size(); ++x) {
+
+            colorSearch += "'" + colorList.get(x) +"'";
+
+            //add a , unless it is the last color
+            if(x != this.colorList.size() -1) {
+                colorSearch += ",";
+            }
+        }
+
+        return colorSearch;
     }
 
     //endregion

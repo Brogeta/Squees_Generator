@@ -28,35 +28,6 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="useExistingDeck" class="col-lg-2 control-label">Check if you want to use an Existing Deck</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" id="useExistingDeck" data-role="flipswitch" data-on-text="True" data-off-text="False"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="selectExistingDeck" class="col-lg-2 control-label">selectExistingDeck</label>
-                <div class="col-lg-10">
-                    <select class="form-control" id="selectExistingDeck">
-                        <option selected value="0">Select an Existing Deck</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="isDraft" class="col-lg-2 control-label">Check if you want to draft</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" id="isDraft" data-role="flipswitch" data-on-text="True" data-off-text="False"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="cardsPerDraft" class="col-lg-2 control-label">Cards per draft round: </label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="cardsPerDraft">
-                </div>
-            </div>
             
             <div class="form-group">
                 <label for="selectFormat" class="col-lg-2 control-label">Format</label>
@@ -116,20 +87,6 @@
                 <label for="quantityMax" class="col-lg-2 control-label">Card Limit: </label>
                 <div class="col-lg-10">
                     <input type="number" class="form-control" id="quantityMax">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="quantityPreferred" class="col-lg-2 control-label">Perferred: </label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="quantityPreferred">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="quantityLegendary" class="col-lg-2 control-label">Preferred Legendary: </label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="quantityLegendary">
                 </div>
             </div>
 
@@ -215,89 +172,33 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="colorless" class="col-lg-2 control-label">colorless</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" id="colorless" data-role="flipswitch" data-on-text="True" data-off-text="False"/>
-                </div>
-            </div>
-
-            <%--Color weight--%>
-
-            <div class="form-group">
-                <label for="weightWhite" class="col-lg-2 control-label">weightWhite: </label>
-                <div class="col-lg-10">
-                    <input type="range" class="form-control" id="weightWhite" value="5" min="0" max="10">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="weightBlue" class="col-lg-2 control-label">weightBlue: </label>
-                <div class="col-lg-10">
-                    <input type="range" class="form-control" id="weightBlue" value="5" min="0" max="10">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="weightBlack" class="col-lg-2 control-label">weightBlack: </label>
-                <div class="col-lg-10">
-                    <input type="range" class="form-control" id="weightBlack" value="5" min="0" max="10">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="weightRed" class="col-lg-2 control-label">weightRed: </label>
-                <div class="col-lg-10">
-                    <input type="range" class="form-control" id="weightRed" value="5" min="0" max="10">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="weightGreen" class="col-lg-2 control-label">weightGreen: </label>
-                <div class="col-lg-10">
-                    <input type="range" class="form-control" id="weightGreen" value="5" min="0" max="10">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="weightColorless" class="col-lg-2 control-label">weightColorless: </label>
-                <div class="col-lg-10">
-                    <input type="range" class="form-control" id="weightColorless" value="5" min="0" max="10">
-                </div>
-            </div>
 
             <%--Rarity Weight--%>
 
             <div class="form-group">
-                <label for="weightWhite" class="col-lg-2 control-label">weightCommon: </label>
+                <label for="weightCommon" class="col-lg-2 control-label">weightCommon: </label>
                 <div class="col-lg-10">
                     <input type="range" class="form-control" id="weightCommon" value="4" min="0" max="10">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="weightWhite" class="col-lg-2 control-label">weightUncommon: </label>
+                <label for="weightUncommon" class="col-lg-2 control-label">weightUncommon: </label>
                 <div class="col-lg-10">
                     <input type="range" class="form-control" id="weightUncommon" value="3" min="0" max="10">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="weightWhite" class="col-lg-2 control-label">weightRare: </label>
+                <label for="weightRare" class="col-lg-2 control-label">weightRare: </label>
                 <div class="col-lg-10">
                     <input type="range" class="form-control" id="weightRare" value="2" min="0" max="10">
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="rareSameAsMythic" class="col-lg-2 control-label">Treat rare and mythic rare as the same?</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" id="rareSameAsMythic" data-role="flipswitch" data-on-text="True" data-off-text="False"/>
-                </div>
-            </div>
 
             <div class="form-group">
-                <label for="weightWhite" class="col-lg-2 control-label">weightMythic: </label>
+                <label for="weightMythic" class="col-lg-2 control-label">weightMythic: </label>
                 <div class="col-lg-10">
                     <input type="range" class="form-control" id="weightMythic" value="1" min="0" max="10">
                 </div>
@@ -305,37 +206,7 @@
 
 
 
-            <%--CMC--%>
-            <div class="form-group">
-                <label for="cmcMin" class="col-lg-2 control-label">CMC Min: </label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="cmcMin">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="cmcMax" class="col-lg-2 control-label">CMC Max: </label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="cmcMax">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="cmcMean" class="col-lg-2 control-label">CMC Mean: </label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="cmcMean">
-                </div>
-            </div>
-
-
             <%--Lands--%>
-
-            <div class="form-group">
-                <label for="landFromCmc" class="col-lg-2 control-label">landFromCmc</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" id="landFromCmc" data-role="flipswitch" data-on-text="True" data-off-text="False"/>
-                </div>
-            </div>
 
             <div class="form-group">
                 <label for="percentLand" class="col-lg-2 control-label">Percent Land: </label>
@@ -348,27 +219,6 @@
                 <label for="percentNonbasicLand" class="col-lg-2 control-label">Percent Nonbasic Land: </label>
                 <div class="col-lg-10">
                     <input type="range" class="form-control" id="percentNonbasicLand" value="35" min="0" max="100">
-                </div>
-            </div>
-
-            <%--KeyWords / Abblities--%>
-
-            <div class="form-group">
-                <label for="selectKeyWords" class="col-lg-2 control-label">Select Key Words</label>
-                <div class="col-lg-10">
-                    <select class="form-control" id="selectKeyWords" multiple>
-                        <option selected value="0">selectKeyWords</option>
-                    </select>
-                </div>
-            </div>
-
-            <%--Sets--%>
-            <div class="form-group">
-                <label for="selectSets" class="col-lg-2 control-label">Select Sets</label>
-                <div class="col-lg-10">
-                    <select class="form-control" id="selectSets" multiple>
-                        <option selected value="0">selectKeyWords</option>
-                    </select>
                 </div>
             </div>
 
