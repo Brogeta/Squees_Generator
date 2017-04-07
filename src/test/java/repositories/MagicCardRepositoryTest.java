@@ -30,18 +30,7 @@ public class MagicCardRepositoryTest {
     @Test
     public void findByAlotTest() {
 
-        List<String> colorList = new ArrayList<>();
-        List<String> typeList = new ArrayList<>();
 
-        colorList.add("w");
-        colorList.add("b");
-        colorList.add("r");
-
-        typeList.add("instant");
-
-        List<MagicCard> magicCardList = magicCardRepository.findByRarityAndMagicTypesListAndColorIdentityList("rare", null, null );
-
-        assertEquals(5, magicCardList.size());
 
     }
 }

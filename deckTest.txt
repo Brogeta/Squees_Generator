@@ -1,80 +1,57 @@
 12 plains
 11 island
-1 Opal Palace
+1 Seat of the Synod
+1 Calciform Pools
+1 Crystal Vein
+1 Saprazzan Skerry
+1 Esper Panorama
 1 Eye of Ugin
-1 Fountain of Cho
+1 Naya Panorama
 1 Temple of the False God
-1 Holdout Settlement
-1 Land Cap
-1 Tolaria
-1 Terrain Generator
-1 Mirrorpool
-1 Mistveil Plains
+1 Ruins of Trokair
 1 Sandstone Bridge
-1 Fleeting Memories
-1 Hinterland Drake
-1 Karn's Touch
-1 Guan Yu's 1,000-Li March
-1 Leashling
-1 Street Sweeper
-1 Wipe Away
-1 Word of Undoing
-1 Circle of Protection: Black
-1 Pact of Negation
-1 Shorecrasher Elemental
-1 Azorius Cluestone
-1 Memory Crystal
-1 Master Thief
-1 Livewire Lash
-1 Bruna, Light of Alabaster
-1 Lifted by Clouds
-1 Stasis Cell
-1 Overwhelming Denial
-1 Abzan Advantage
-1 Endoskeleton
-1 Endure
-1 Voyager Staff
-1 Heliod, God of the Sun
-1 Flash
-1 Fascination
-1 Vulshok Battlegear
-1 Wind Sail
-1 Viseling
-1 Green Ward
-1 Sacred Boon
-1 Leonin Bola
-1 Akroan Horse
-1 Insectile Aberration
+1 Strip Mine
+1 Sanctimony
+1 Blatant Thievery
+1 Divine Light
+1 Astral Steel
+1 Gelid Shackles
 1 Declaration in Stone
-1 Mystic Speculation
-1 Call to Mind
-1 Cogwork Grinder
-1 Presence of the Wise
-1 Evasive Action
-1 Armored Transport
-1 Leaden Fists
-1 Sphinx's Revelation
-1 Drag Under
-1 Detention Sphere
-1 Soldevi Simulacrum
-1 Phyrexian Altar
-1 Razormane Masticore
+1 Indestructibility
+1 Rebuke
+1 Vengeful Dreams
+1 Jalum Tome
+1 Admonition Angel
+1 Crafty Pathmage
+1 Cobbled Wings
 1 Coercive Portal
-1 Samite Elder
-1 Shared Discovery
-1 Diminishing Returns
-1 Landbind Ritual
-1 Martyr's Cause
-1 Hold at Bay
-1 Masterwork of Ingenuity
-1 Ugin, the Spirit Dragon
-1 Kytheon's Tactics
-1 Apathy
-1 Marshaling Cry
-1 Kitsune Mystic
-1 Dispense Justice
-1 Mindbreak Trap
-1 Think Twice
-1 Crystal Chimes
+1 Squee's Toy
+1 Hedron Rover
+1 Chronic Flooding
+1 Field of Dreams
+1 Skygames
+1 Divine Reckoning
+1 Siren of the Fanged Coast
+1 Swift Silence
+1 Political Trickery
+1 Day's Undoing
+1 Curse of the Forsaken
+1 Martyr of Sands
+1 Stubborn Denial
+1 Preordain
+1 Angel of Serenity
+1 Gonti's Aether Heart
+1 Ojutai Monument
+1 Eldrazi Monument
+1 Consuming Vortex
+1 Sacred Guide
+1 Galvanic Juggernaut
+1 Ironwright's Cleansing
+1 Omen
+1 Training Drone
+1 Standardize
+1 Exclusion Ritual
+1 Uncovered Clues
+1 Umbra Mystic
  
 1 Isperia the Inscrutable

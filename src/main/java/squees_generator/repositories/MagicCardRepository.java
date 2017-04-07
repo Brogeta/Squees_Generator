@@ -30,8 +30,8 @@ public interface MagicCardRepository extends CrudRepository<MagicCard, String> {
         NullBehavior value() default NullBehavior.EQUALS;
     }
 
-    @MagicCardRepository.NullMeans(MagicCardRepository.NullBehavior.IS)
-    List<MagicCard> findByRarityAndMagicTypesListAndColorIdentityList(String rarity, List<String> magicTypesList, List<String> colorIdentityList);
+//    @MagicCardRepository.NullMeans(MagicCardRepository.NullBehavior.IS)
+//    List<MagicCard> findByRarityAndMagicTypesListAndColorIdentityList(String rarity, List<String> magicTypesList, List<String> colorIdentityList);
 
     @MagicCardRepository.NullMeans(MagicCardRepository.NullBehavior.IS)
     @Query(value = "SELECT distinct a.* FROM magic_card a \n" +

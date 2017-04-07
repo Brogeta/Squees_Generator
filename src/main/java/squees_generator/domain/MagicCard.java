@@ -15,7 +15,7 @@ public class MagicCard {
     //region    DATA
     @Id
     @Column(name = "MagicCardId")
-    private String cardName;
+    private String name;
 
     @Version
     private Integer version;
@@ -24,13 +24,15 @@ public class MagicCard {
     private String rarity;
 
     @ManyToMany(fetch= FetchType.EAGER)
-    private List<MagicTypes> magicTypesList;
+    @JoinColumn(name = "typeName")
+    private List<MagicTypes> types;
 
     @ManyToMany(fetch= FetchType.EAGER)
-    private List<ColorIdentity> colorIdentityList;
+    @JoinColumn(name = "color")
+    private List<ColorIdentity> colorIdentity;
 
     @OneToMany(fetch= FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Legalities> legalitiesList;
+    private List<Legalities> legalities;
 
     private String imageUrl;
 
@@ -38,27 +40,27 @@ public class MagicCard {
 
     //region    CONSTRUCTORS
     public MagicCard() {
-        this.magicTypesList = new ArrayList<>();
-        this.colorIdentityList = new ArrayList<>();
-        this.legalitiesList = new ArrayList<>();
+        this.types = new ArrayList<>();
+        this.colorIdentity = new ArrayList<>();
+        this.legalities = new ArrayList<>();
     }
 
     public MagicCard(String cardName) {
-        this.cardName = cardName;
-        this.magicTypesList = new ArrayList<>();
-        this.colorIdentityList = new ArrayList<>();
-        this.legalitiesList = new ArrayList<>();
+        this.name = cardName;
+        this.types = new ArrayList<>();
+        this.colorIdentity = new ArrayList<>();
+        this.legalities = new ArrayList<>();
     }
 
     //endregion
 
     //region        GET / SET
-    public String getCardName() {
-        return cardName;
+    public String getName() {
+        return name;
     }
 
-    public void setCardName(String cardName) {
-        this.cardName = cardName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getVersion() {
@@ -85,20 +87,20 @@ public class MagicCard {
         this.rarity = rarity;
     }
 
-    public List<MagicTypes> getMagicTypesList() {
-        return magicTypesList;
+    public List<MagicTypes> getTypes() {
+        return types;
     }
 
-    public void setMagicTypesList(List<MagicTypes> magicTypesList) {
-        this.magicTypesList = magicTypesList;
+    public void setTypes(List<MagicTypes> types) {
+        this.types = types;
     }
 
-    public List<ColorIdentity> getColorIdentityList() {
-        return colorIdentityList;
+    public List<ColorIdentity> getColorIdentity() {
+        return colorIdentity;
     }
 
-    public void setColorIdentityList(List<ColorIdentity> colorIdentityList) {
-        this.colorIdentityList = colorIdentityList;
+    public void setColorIdentity(List<ColorIdentity> colorIdentity) {
+        this.colorIdentity = colorIdentity;
     }
 
     public String getImageUrl() {
@@ -109,12 +111,12 @@ public class MagicCard {
         this.imageUrl = imageUrl;
     }
 
-    public List<Legalities> getLegalitiesList() {
-        return legalitiesList;
+    public List<Legalities> getLegalities() {
+        return legalities;
     }
 
-    public void setLegalitiesList(List<Legalities> legalitiesList) {
-        this.legalitiesList = legalitiesList;
+    public void setLegalities(List<Legalities> legalities) {
+        this.legalities = legalities;
     }
 
     //endregion

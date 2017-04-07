@@ -1,7 +1,6 @@
 package squees_generator.bootstrap;
 
 import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -10,11 +9,10 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import squees_generator.domain.*;
+import squees_generator.domain.DTO.MagicCardResponse;
 import squees_generator.services.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by Brandon.O'Donnell on 3/13/2017.
@@ -44,9 +42,9 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 //        populateMagicTypes();
 //        populateColorIdentity();
-//        importAllCards();
-//        populateParameters();
-//        populateParametersCommander();
+        importAllCards();
+        populateParameters();
+        populateParametersCommander();
     }
 
     public void populateParametersCommander() {
@@ -139,11 +137,9 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
 
     public void importAllCards() {
-        int resultCount;
         int page = 1;
-        int smallCount;
-        MagicCard magicCard;
-        String jsonString;
+        MagicCardResponse responseBody;
+
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
@@ -155,63 +151,17 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
 
         do{
-            ResponseEntity<String> response = restTemplate.exchange("https://api.magicthegathering.io/v1/cards?page=" + page, HttpMethod.GET, entity, String.class);
-            String responseBody = response.getBody();
+            ResponseEntity<MagicCardResponse> response = restTemplate.exchange("https://api.magicthegathering.io/v1/cards?page=" + page, HttpMethod.GET, entity, MagicCardResponse.class);
+            responseBody = response.getBody();
 
-            Object document = Configuration.defaultConfiguration().jsonProvider().parse(responseBody);
 
-            resultCount = JsonPath.read(document, "$.cards.length()");
-
-            for(int x =0; x < resultCount; ++x){
-                magicCard = new MagicCard();
-                magicCard.setCardName(JsonPath.read(document, "$.cards["+x+"].name"));
-                magicCard.setRarity(JsonPath.read(document, "$.cards["+x+"].rarity"));
-
-//                //cmc
-//                if(!(JsonPath.using(conf2).parse(responseBody).read("$.cards[" + x + "].cmc")==null)) {
-//                    magicCard.setCmc((float)JsonPath.using(conf2).parse(responseBody).read("$.cards["+x+"].cmc"));
-//                }
-
-                //url
-                if(!(JsonPath.using(conf2).parse(responseBody).read("$.cards[" + x + "].imageUrl")==null)) {
-                    magicCard.setImageUrl(JsonPath.using(conf2).parse(responseBody).read("$.cards[" + x + "].imageUrl"));
-                }
-
-                //set Legalities
-                if(!(JsonPath.using(conf2).parse(responseBody).read("$.cards[" + x + "].legalities")==null)) {
-                    smallCount = JsonPath.read(document, "$.cards[" + x + "].legalities.length()");
-                    for (int y = 0; y < smallCount; ++y) {
-
-                        magicCard.getLegalitiesList().add(new Legalities(JsonPath.read(document, "$.cards[" + x + "].legalities[" + y + "].format"),
-                                JsonPath.read(document, "$.cards[" + x + "].legalities[" + y + "].legality")));
-                    }
-                }
-
-                //set typesList
-                if(!(JsonPath.using(conf2).parse(responseBody).read("$.cards[" + x + "].types")==null)) {
-                    smallCount = JsonPath.read(document, "$.cards[" + x + "].types.length()");
-                    for (int y = 0; y < smallCount; ++y) {
-                        MagicTypes magicTypes = magicTypesService.getMagicTypesById(JsonPath.read(document, "$.cards[" + x + "].types[" + y + "]"));
-
-                        magicCard.getMagicTypesList().add(magicTypes);
-                    }
-                }
-
-                //colorIdentityList
-                if(!(JsonPath.using(conf2).parse(responseBody).read("$.cards[" + x + "].colorIdentity")==null)) {
-                    smallCount = JsonPath.read(document, "$.cards[" + x + "].colorIdentity.length()");
-                    for (int y = 0; y < smallCount; ++y) {
-                        ColorIdentity colorIdentity = colorIdentityService.getColorIdentityById(JsonPath.read(document, "$.cards[" + x + "].colorIdentity[" + y + "]"));
-
-                        magicCard.getColorIdentityList().add(colorIdentity);
-                    }
-                }
-                if(magicCardService.getMagicCardById(magicCard.getCardName())==null)
+            for(MagicCard magicCard : responseBody.getMagicCardList()) {
+                if (magicCardService.getMagicCardById(magicCard.getName()) == null)
                     magicCardService.saveMagicCard(magicCard);
             }
 
             ++page;
-        }while(resultCount>0);
+        }while(responseBody.getMagicCardList() != null);
 
 
     }

@@ -1,15 +1,8 @@
 package squees_generator.services.impl;
 
-import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.JsonPath;
-import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-import springfox.documentation.spring.web.json.Json;
 import squees_generator.common.helpers.StringHelper;
 import squees_generator.domain.MagicCard;
 import squees_generator.domain.MagicDeck;
@@ -24,7 +17,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -111,11 +103,11 @@ public class MagicDeckServiceImpl implements MagicDeckService {
     //if the generals exist they will be added to the deck
     public void fillGenerals(MagicDeck magicDeck, Parameters parameters, DeckRequirements deckRequirements) {
         if(parameters.getGeneral1()!=null) {
-            magicDeck.getSideboard().add(magicCardRepository.findOne(parameters.getGeneral1().getCardName()));
+            magicDeck.getSideboard().add(magicCardRepository.findOne(parameters.getGeneral1().getName()));
             deckRequirements.setSideboardSize(deckRequirements.getSideboardSize()-1);
         }
         if(parameters.getGeneral2()!=null) {
-            magicDeck.getSideboard().add(magicCardRepository.findOne(parameters.getGeneral2().getCardName()));
+            magicDeck.getSideboard().add(magicCardRepository.findOne(parameters.getGeneral2().getName()));
             deckRequirements.setSideboardSize(deckRequirements.getSideboardSize()-1);
         }
     }
@@ -158,7 +150,7 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
                 int slot = rng.nextInt(count);
 
-                selectedCard = magicCardList.get(slot).getCardName();
+                selectedCard = magicCardList.get(slot).getName();
 
             } while (magicDeck.checkDeckForCard(selectedCard));
 
@@ -216,7 +208,7 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
                 int slot = rng.nextInt(count);
 
-                selectedCard = magicCardList.get(slot).getCardName();
+                selectedCard = magicCardList.get(slot).getName();
 
             } while (magicDeck.checkDeckForCard(selectedCard));
 
@@ -300,7 +292,7 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
                 int slot = rng.nextInt(count);
 
-                selectedCard = magicCardList.get(slot).getCardName();
+                selectedCard = magicCardList.get(slot).getName();
 
             } while (magicDeck.checkDeckForCard(selectedCard));
 
@@ -326,25 +318,25 @@ public class MagicDeckServiceImpl implements MagicDeckService {
         int index;
 
         for(MagicCard magicCard : magicDeck.getMainDeck()) {
-            if(StringHelper.stringListHasString(cardsMain, magicCard.getCardName())) {
-               index = cardsMain.indexOf(magicCard.getCardName());
+            if(StringHelper.stringListHasString(cardsMain, magicCard.getName())) {
+               index = cardsMain.indexOf(magicCard.getName());
                 quantityMain.set(index,quantityMain.get(index)+1);
 
             }
             else {
-                cardsMain.add(magicCard.getCardName());
+                cardsMain.add(magicCard.getName());
                 quantityMain.add(1);
             }
         }
 
         for(MagicCard magicCard : magicDeck.getSideboard()) {
-            if(StringHelper.stringListHasString(cardsSide, magicCard.getCardName())) {
-                index = cardsSide.indexOf(magicCard.getCardName());
+            if(StringHelper.stringListHasString(cardsSide, magicCard.getName())) {
+                index = cardsSide.indexOf(magicCard.getName());
                 quantitySide.set(index,quantitySide.get(index)+1);
 
             }
             else {
-                cardsSide.add(magicCard.getCardName());
+                cardsSide.add(magicCard.getName());
                 quantitySide.add(1);
             }
         }
