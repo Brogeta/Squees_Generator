@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45692611-241a-4205-bc4e-2650ab6265fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/squees_generator/domain/DTO/MagicCardResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/Domains/MagicDeckTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/squees_generator/domain/MagicCard.class" afterPath="$PROJECT_DIR$/target/classes/squees_generator/domain/MagicCard.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/squees_generator/repositories/MagicCardRepository.class" afterPath="$PROJECT_DIR$/target/classes/squees_generator/repositories/MagicCardRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/repositories/MagicCardRepositoryTest.class" afterPath="$PROJECT_DIR$/target/test-classes/repositories/MagicCardRepositoryTest.class" />
@@ -11,16 +9,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/squees_generator/rest/MagicDeckRest.class" afterPath="$PROJECT_DIR$/target/classes/squees_generator/rest/MagicDeckRest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/squees_generator/services/impl/MagicDeckServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/squees_generator/services/impl/MagicDeckServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/squees_generator/bootstrap/SeedData.class" afterPath="$PROJECT_DIR$/target/classes/squees_generator/bootstrap/SeedData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squees_generator/domain/MagicCard.java" afterPath="$PROJECT_DIR$/src/main/java/squees_generator/domain/MagicCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squees_generator/repositories/MagicCardRepository.java" afterPath="$PROJECT_DIR$/src/main/java/squees_generator/repositories/MagicCardRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/repositories/MagicCardRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/repositories/MagicCardRepositoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squees_generator/domain/MagicDeck.java" afterPath="$PROJECT_DIR$/src/main/java/squees_generator/domain/MagicDeck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squees_generator/rest/MagicDeckRest.java" afterPath="$PROJECT_DIR$/src/main/java/squees_generator/rest/MagicDeckRest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squees_generator/services/impl/MagicDeckServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/squees_generator/services/impl/MagicDeckServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/squees_generator/bootstrap/SeedData.java" afterPath="$PROJECT_DIR$/src/main/java/squees_generator/bootstrap/SeedData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deckTest.txt" afterPath="$PROJECT_DIR$/deckTest.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="squees_generator.iws" />
@@ -1216,7 +1205,7 @@
       <created>1490388312985</created>
       <option name="number" value="Default" />
       <updated>1490388312985</updated>
-      <workItem from="1490388314793" duration="187186000" />
+      <workItem from="1490388314793" duration="187207000" />
     </task>
     <task id="LOCAL-00001" summary="trying this out">
       <created>1490637757612</created>
@@ -1236,11 +1225,17 @@
       <option name="project" value="LOCAL" />
       <updated>1491520331998</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test">
+      <created>1491601785798</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1491601785798</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187186000" />
+    <option name="totallyTimeSpent" value="187207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-908" width="1616" height="916" extended-state="6" />
