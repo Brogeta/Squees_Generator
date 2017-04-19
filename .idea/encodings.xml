@@ -8,15 +8,5 @@
     <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/common/helpers/MathHelper.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/common/helpers/ServletHelper.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/common/helpers/StringHelper.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/controllers/VehicleMakeController.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/repositories/VehicleMakeRepository.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/repositories/VehicleModelRepository.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/repositories/VehicleRepository.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/services/VehicleMakeService.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/services/VehicleModelService.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/services/VehicleService.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/services/impl/VehicleMakeServiceImpl.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/services/impl/VehicleModelServiceImpl.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/squees_generator/services/impl/VehicleServiceImpl.java" charset="windows-1252" />
   </component>
 </project>

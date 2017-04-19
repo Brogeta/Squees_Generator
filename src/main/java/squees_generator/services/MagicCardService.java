@@ -22,4 +22,8 @@ public interface MagicCardService {
 
     List<MagicCard> findByRequirements(String C1, String C2,String C3,String C4,String C5, String type, String rarity, String format);
 
+    List<MagicCard> findGenerals();
+
+    List<MagicCard> findRandomGeneral();
+
 }

@@ -42,22 +42,22 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 //        populateMagicTypes();
 //        populateColorIdentity();
-        importAllCards();
-        populateParameters();
-        populateParametersCommander();
+//        importAllCards();
+//        populateParameters();
+//        populateParametersCommander();
+//        populateParametersTest();
     }
 
     public void populateParametersCommander() {
 
         Parameters parameters = new Parameters();
 
+        parameters.setName("Commander");
         parameters.setCardsPerRound(1);
         parameters.setMagicFormat("commander");
         parameters.setDeckSize(99);
         parameters.setSideboardSize(1);
         parameters.setQuantityMax(1);
-        parameters.setQuantityPreferred(1);
-        parameters.setQuantityLegendary(1);
 
         parameters.setWeightCreature(3);
         parameters.setWeightEnchantment(3);
@@ -65,21 +65,16 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
         parameters.setWeightPlaneswalker(2);
         parameters.setWeightInstant(3);
         parameters.setWeightSorcery(4);
-        parameters.setWeightWhite(3);
-        parameters.setWeightBlue(3);
-        parameters.setWeightBlack(0);
-        parameters.setWeightRed(0);
-        parameters.setWeightGreen(0);
-        parameters.setWeightColorless(0);
+        parameters.setWeightWhite(true);
+        parameters.setWeightBlue(true);
+        parameters.setWeightBlack(false);
+        parameters.setWeightRed(false);
+        parameters.setWeightGreen(false);
         parameters.setWeightCommon(4);
         parameters.setWeightUncommon(3);
         parameters.setWeightRare(2);
         parameters.setWeightMythic(1);
 
-        parameters.setRareSameAsMythic(true);
-        parameters.setCmcMin(0);
-        parameters.setCmcMax(15);
-        parameters.setCmcMean(4);
         parameters.setPercentLand(35);
         parameters.setPercentNonbasicLand(35);
         parameters.setGeneral1(magicCardService.getMagicCardById("Isperia the Inscrutable"));
@@ -91,17 +86,17 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
 
     }
+
     public void populateParameters() {
 
         Parameters parameters = new Parameters();
 
+        parameters.setName("Modern");
         parameters.setCardsPerRound(1);
         parameters.setMagicFormat("modern");
         parameters.setDeckSize(60);
         parameters.setSideboardSize(15);
         parameters.setQuantityMax(4);
-        parameters.setQuantityPreferred(4);
-        parameters.setQuantityLegendary(3);
 
         parameters.setWeightCreature(3);
         parameters.setWeightEnchantment(3);
@@ -109,32 +104,58 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
         parameters.setWeightPlaneswalker(2);
         parameters.setWeightInstant(3);
         parameters.setWeightSorcery(4);
-        parameters.setWeightWhite(0);
-        parameters.setWeightBlue(3);
-        parameters.setWeightBlack(4);
-        parameters.setWeightRed(0);
-        parameters.setWeightGreen(2);
-        parameters.setWeightColorless(0);
+        parameters.setWeightWhite(false);
+        parameters.setWeightBlue(true);
+        parameters.setWeightBlack(true);
+        parameters.setWeightRed(false);
+        parameters.setWeightGreen(true);
         parameters.setWeightCommon(4);
         parameters.setWeightUncommon(3);
         parameters.setWeightRare(2);
         parameters.setWeightMythic(1);
 
-        parameters.setRareSameAsMythic(true);
-        parameters.setCmcMin(0);
-        parameters.setCmcMax(15);
-        parameters.setCmcMean(4);
         parameters.setPercentLand(35);
         parameters.setPercentNonbasicLand(35);
-
-//        parameters.setKeyWords(new ArrayList<>());
-//        parameters.setMagicSets(new ArrayList<>());
 
         parametersService.saveParameters(parameters);
 
 
     }
 
+    public void populateParametersTest() {
+
+        Parameters parameters = new Parameters();
+
+        parameters.setName("Test");
+        parameters.setCardsPerRound(1);
+        parameters.setMagicFormat("modern");
+        parameters.setDeckSize(10);
+        parameters.setSideboardSize(10);
+        parameters.setQuantityMax(4);
+
+        parameters.setWeightCreature(3);
+        parameters.setWeightEnchantment(3);
+        parameters.setWeightArtifact(3);
+        parameters.setWeightPlaneswalker(2);
+        parameters.setWeightInstant(3);
+        parameters.setWeightSorcery(4);
+        parameters.setWeightWhite(true);
+        parameters.setWeightBlue(true);
+        parameters.setWeightBlack(true);
+        parameters.setWeightRed(true);
+        parameters.setWeightGreen(true);
+        parameters.setWeightCommon(4);
+        parameters.setWeightUncommon(3);
+        parameters.setWeightRare(2);
+        parameters.setWeightMythic(1);
+
+        parameters.setPercentLand(10);
+        parameters.setPercentNonbasicLand(50);
+
+        parametersService.saveParameters(parameters);
+
+
+    }
 
     public void importAllCards() {
         int page = 1;
@@ -157,7 +178,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
             for(MagicCard magicCard : responseBody.getMagicCardList()) {
                 if (magicCardService.getMagicCardById(magicCard.getName()) == null)
-                    magicCardService.saveMagicCard(magicCard);
+                    magicCardService.saveMagicCard(responseToCard(magicCard));
             }
 
             ++page;
@@ -237,5 +258,27 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
         colorIdentity = new ColorIdentity("g");
         colorIdentityService.saveColorIdentity(colorIdentity);
+    }
+
+    public MagicCard responseToCard(MagicCard response) {
+        MagicCard magicCard = new MagicCard();
+
+        magicCard.setName(response.getName());
+        magicCard.setCmc(response.getCmc());
+        magicCard.setRarity(response.getRarity());
+        magicCard.setImageUrl(response.getImageUrl());
+        magicCard.setType(response.getType());
+
+        response.getLegalities().forEach((legalities) -> magicCard.getLegalities().add(legalities));
+
+        for(ColorIdentity colorIdentity : response.getColorIdentity()) {
+            magicCard.getColorIdentity().add(colorIdentityService.getColorIdentityById(colorIdentity.getColor()));
+        }
+
+        for(MagicTypes magicTypes : response.getTypes()) {
+            magicCard.getTypes().add(magicTypesService.getMagicTypesById(magicTypes.getTypeName()));
+        }
+
+        return magicCard;
     }
 }

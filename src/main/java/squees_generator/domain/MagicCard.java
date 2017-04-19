@@ -23,11 +23,13 @@ public class MagicCard {
     private float cmc;
     private String rarity;
 
-    @ManyToMany(fetch= FetchType.EAGER)
+    private String type;
+
+    @ManyToMany(fetch= FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "typeName")
     private List<MagicTypes> types;
 
-    @ManyToMany(fetch= FetchType.EAGER)
+    @ManyToMany(fetch= FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "color")
     private List<ColorIdentity> colorIdentity;
 
@@ -117,6 +119,14 @@ public class MagicCard {
 
     public void setLegalities(List<Legalities> legalities) {
         this.legalities = legalities;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     //endregion

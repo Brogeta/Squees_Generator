@@ -7,7 +7,9 @@ import squees_generator.domain.MagicCard;
 import squees_generator.repositories.MagicCardRepository;
 import squees_generator.services.MagicCardService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Brandon.O'Donnell on 3/29/2017.
@@ -47,5 +49,24 @@ public class MagicCardServiceImpl implements MagicCardService {
     public List<MagicCard> findByRequirements(String C1, String C2,String C3,String C4,String C5, String type, String rarity, String format) {
         return magicCardRepository.findByRequirements(C1, C2, C3, C4, C5, type, rarity, format);
     }
+
+    @Override
+    public List<MagicCard> findGenerals() {
+        return magicCardRepository.findGenerals();
+    }
+
+    @Override
+    public List<MagicCard> findRandomGeneral() {
+        List<MagicCard> generals = magicCardRepository.findGenerals();
+        List<MagicCard> chosenOne = new ArrayList<>();
+
+        Random rnd = new Random();
+        chosenOne.add(generals.get(rnd.nextInt(generals.size())));
+
+        return chosenOne;
+    }
+
+
+
 
 }

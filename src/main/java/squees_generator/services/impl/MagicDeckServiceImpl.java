@@ -79,10 +79,10 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
         Parameters parameters = parametersRepository.findOne(id);
 
-        if(parameters.getExistingDeck() != null) {
-            magicDeck = parameters.getExistingDeck();
-        }
-        else
+//        if(parameters.getExistingDeck() != null) {
+//            magicDeck = parameters.getExistingDeck();
+//        }
+//        else
             magicDeck = new MagicDeck();
 
         DeckRequirements deckRequirements = new DeckRequirements();
@@ -96,7 +96,6 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
         magicDeckRepository.save(magicDeck);
 
-        deckAsTxt(magicDeck);
         return magicDeck;
     }
 
@@ -162,7 +161,7 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
                 --x;
                 ++quantityCount;
-            } while (x > 0 && quantityCount < parameters.getQuantityPreferred());
+            } while (x > 0 && quantityCount < parameters.getQuantityMax());
             quantityCount = 0;
         }
     }
@@ -220,7 +219,7 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
                 --x;
                 ++quantityCount;
-            } while (x > 0 && quantityCount < parameters.getQuantityPreferred());
+            } while (x > 0 && quantityCount < parameters.getQuantityMax());
             quantityCount = 0;
         }
     }
@@ -237,23 +236,23 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
         //fill basic lands
         for(int x = 0; x < deckRequirements.getBasicLands();) {
-            if(parameters.getWeightWhite()>0 && x <deckRequirements.getBasicLands()) {
+            if(parameters.isWeightWhite() && x <deckRequirements.getBasicLands()) {
                 magicDeck.getMainDeck().add(magicCardRepository.findOne("plains"));
                 ++x;
             }
-            if(parameters.getWeightBlue()>0 && x <deckRequirements.getBasicLands()) {
+            if(parameters.isWeightBlue() && x <deckRequirements.getBasicLands()) {
                 magicDeck.getMainDeck().add(magicCardRepository.findOne("island"));
                 ++x;
             }
-            if(parameters.getWeightBlack()>0 && x <deckRequirements.getBasicLands()) {
+            if(parameters.isWeightBlack() && x <deckRequirements.getBasicLands()) {
                 magicDeck.getMainDeck().add(magicCardRepository.findOne("swamp"));
                 ++x;
             }
-            if(parameters.getWeightRed()>0 && x <deckRequirements.getBasicLands()) {
+            if(parameters.isWeightRed() && x <deckRequirements.getBasicLands()) {
                 magicDeck.getMainDeck().add(magicCardRepository.findOne("mountain"));
                 ++x;
             }
-            if(parameters.getWeightGreen()>0 && x <deckRequirements.getBasicLands()) {
+            if(parameters.isWeightGreen() && x <deckRequirements.getBasicLands()) {
                 magicDeck.getMainDeck().add(magicCardRepository.findOne("forest"));
                 ++x;
             }
@@ -304,7 +303,7 @@ public class MagicDeckServiceImpl implements MagicDeckService {
 
                 --x;
                 ++quantityCount;
-            } while (x > 0 && quantityCount < parameters.getQuantityPreferred());
+            } while (x > 0 && quantityCount < parameters.getQuantityMax());
             quantityCount = 0;
         }
     }

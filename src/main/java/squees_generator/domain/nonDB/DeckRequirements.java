@@ -173,21 +173,19 @@ public class DeckRequirements {
         this.colorList = new ArrayList<>();
 
 
-
-
-            if(parameters.getWeightWhite() == 0)
+            if(!parameters.isWeightWhite())
                 this.colorList.add("w");
 
-            if(parameters.getWeightBlue() == 0)
+            if(!parameters.isWeightBlue())
                 this.colorList.add("u");
 
-            if(parameters.getWeightBlack() == 0)
+            if(!parameters.isWeightBlack())
                 this.colorList.add("b");
 
-            if(parameters.getWeightRed() == 0)
+            if(!parameters.isWeightRed())
                 this.colorList.add("r");
 
-            if(parameters.getWeightGreen() == 0)
+            if(!parameters.isWeightGreen())
                 this.colorList.add("g");
 
     }

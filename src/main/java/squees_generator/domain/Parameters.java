@@ -3,7 +3,6 @@ package squees_generator.domain;/**
  */
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created by Brandon.O'Donnell on 3/27/2017.
@@ -19,6 +18,8 @@ public class Parameters {
 
     @Version
     private Integer version;
+
+    private String name;
 
     @ManyToOne
     private MagicDeck   existingDeck;
@@ -39,8 +40,6 @@ public class Parameters {
     private int         deckSize;
     private int         sideboardSize;
     private int         quantityMax;
-    private int         quantityPreferred;
-    private int         quantityLegendary;
 
     //Type Weight
     private int         weightCreature;
@@ -51,35 +50,23 @@ public class Parameters {
     private int         weightSorcery;
 
     //Color Weight
-    private int         weightWhite;
-    private int         weightBlue;
-    private int         weightBlack;
-    private int         weightRed;
-    private int         weightGreen;
-    private int         weightColorless;
+    private boolean         weightWhite;
+    private boolean         weightBlue;
+    private boolean         weightBlack;
+    private boolean         weightRed;
+    private boolean         weightGreen;
 
     //Rarity weight
     private int         weightCommon;
     private int         weightUncommon;
     private int         weightRare;
     private int         weightMythic;
-    private boolean     rareSameAsMythic;
-
-    //CMC
-    private int         cmcMin;
-    private int         cmcMax;
-    private int         cmcMean;
 
     //Lands
     private int         percentLand;
     private int         percentNonbasicLand;
 
 
-//    //Key Words
-//    private List<String>    keyWords;
-//
-//    //sets
-//    private List<String>    magicSets;
 
     //endregion
 
@@ -94,20 +81,20 @@ public class Parameters {
 
     //region    GET / SET
 
-//    public List<String> getMagicSets() {
-//        return magicSets;
-//    }
-//
-//    public void setMagicSets(List<String> magicSets) {
-//        this.magicSets = magicSets;
-//    }
-
     public Integer getVersion() {
         return version;
     }
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public MagicDeck getExistingDeck() {
@@ -174,22 +161,6 @@ public class Parameters {
         this.quantityMax = quantityMax;
     }
 
-    public int getQuantityPreferred() {
-        return quantityPreferred;
-    }
-
-    public void setQuantityPreferred(int quantityPreferred) {
-        this.quantityPreferred = quantityPreferred;
-    }
-
-    public int getQuantityLegendary() {
-        return quantityLegendary;
-    }
-
-    public void setQuantityLegendary(int quantityLegendary) {
-        this.quantityLegendary = quantityLegendary;
-    }
-
     public int getWeightCreature() {
         return weightCreature;
     }
@@ -238,54 +209,6 @@ public class Parameters {
         this.weightSorcery = weightSorcery;
     }
 
-    public int getWeightWhite() {
-        return weightWhite;
-    }
-
-    public void setWeightWhite(int weightWhite) {
-        this.weightWhite = weightWhite;
-    }
-
-    public int getWeightBlue() {
-        return weightBlue;
-    }
-
-    public void setWeightBlue(int weightBlue) {
-        this.weightBlue = weightBlue;
-    }
-
-    public int getWeightBlack() {
-        return weightBlack;
-    }
-
-    public void setWeightBlack(int weightBlack) {
-        this.weightBlack = weightBlack;
-    }
-
-    public int getWeightRed() {
-        return weightRed;
-    }
-
-    public void setWeightRed(int weightRed) {
-        this.weightRed = weightRed;
-    }
-
-    public int getWeightGreen() {
-        return weightGreen;
-    }
-
-    public void setWeightGreen(int weightGreen) {
-        this.weightGreen = weightGreen;
-    }
-
-    public int getWeightColorless() {
-        return weightColorless;
-    }
-
-    public void setWeightColorless(int weightColorless) {
-        this.weightColorless = weightColorless;
-    }
-
     public int getWeightCommon() {
         return weightCommon;
     }
@@ -318,38 +241,6 @@ public class Parameters {
         this.weightMythic = weightMythic;
     }
 
-    public boolean isRareSameAsMythic() {
-        return rareSameAsMythic;
-    }
-
-    public void setRareSameAsMythic(boolean rareSameAsMythic) {
-        this.rareSameAsMythic = rareSameAsMythic;
-    }
-
-    public int getCmcMin() {
-        return cmcMin;
-    }
-
-    public void setCmcMin(int cmcMin) {
-        this.cmcMin = cmcMin;
-    }
-
-    public int getCmcMax() {
-        return cmcMax;
-    }
-
-    public void setCmcMax(int cmcMax) {
-        this.cmcMax = cmcMax;
-    }
-
-    public int getCmcMean() {
-        return cmcMean;
-    }
-
-    public void setCmcMean(int cmcMean) {
-        this.cmcMean = cmcMean;
-    }
-
     public int getPercentLand() {
         return percentLand;
     }
@@ -366,7 +257,47 @@ public class Parameters {
         this.percentNonbasicLand = percentNonbasicLand;
     }
 
-//    public List<String> getKeyWords() {
+    public boolean isWeightWhite() {
+        return weightWhite;
+    }
+
+    public void setWeightWhite(boolean weightWhite) {
+        this.weightWhite = weightWhite;
+    }
+
+    public boolean isWeightBlue() {
+        return weightBlue;
+    }
+
+    public void setWeightBlue(boolean weightBlue) {
+        this.weightBlue = weightBlue;
+    }
+
+    public boolean isWeightBlack() {
+        return weightBlack;
+    }
+
+    public void setWeightBlack(boolean weightBlack) {
+        this.weightBlack = weightBlack;
+    }
+
+    public boolean isWeightRed() {
+        return weightRed;
+    }
+
+    public void setWeightRed(boolean weightRed) {
+        this.weightRed = weightRed;
+    }
+
+    public boolean isWeightGreen() {
+        return weightGreen;
+    }
+
+    public void setWeightGreen(boolean weightGreen) {
+        this.weightGreen = weightGreen;
+    }
+
+    //    public List<String> getKeyWords() {
 //        return keyWords;
 //    }
 //

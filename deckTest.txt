@@ -1,57 +1,8 @@
-12 plains
-11 island
-1 Seat of the Synod
-1 Calciform Pools
-1 Crystal Vein
-1 Saprazzan Skerry
-1 Esper Panorama
-1 Eye of Ugin
-1 Naya Panorama
-1 Temple of the False God
-1 Ruins of Trokair
-1 Sandstone Bridge
-1 Strip Mine
-1 Sanctimony
-1 Blatant Thievery
-1 Divine Light
-1 Astral Steel
-1 Gelid Shackles
-1 Declaration in Stone
-1 Indestructibility
-1 Rebuke
-1 Vengeful Dreams
-1 Jalum Tome
-1 Admonition Angel
-1 Crafty Pathmage
-1 Cobbled Wings
-1 Coercive Portal
-1 Squee's Toy
-1 Hedron Rover
-1 Chronic Flooding
-1 Field of Dreams
-1 Skygames
-1 Divine Reckoning
-1 Siren of the Fanged Coast
-1 Swift Silence
-1 Political Trickery
-1 Day's Undoing
-1 Curse of the Forsaken
-1 Martyr of Sands
-1 Stubborn Denial
-1 Preordain
-1 Angel of Serenity
-1 Gonti's Aether Heart
-1 Ojutai Monument
-1 Eldrazi Monument
-1 Consuming Vortex
-1 Sacred Guide
-1 Galvanic Juggernaut
-1 Ironwright's Cleansing
-1 Omen
-1 Training Drone
-1 Standardize
-1 Exclusion Ritual
-1 Uncovered Clues
-1 Umbra Mystic
+1 plains
+4 Dreamspoiler Witches
+4 Quest for the Goblin Lord
+1 Profound Journey
  
-1 Isperia the Inscrutable
+4 Sphinx's Revelation
+4 Contingency Plan
+2 Repel Intruders
